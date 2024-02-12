@@ -54,11 +54,10 @@ jobs:
       with:
         registry: ghcr.io
         username: thearkaid
-        password: ${{ secrets.GITHUB_TOKEN }}
+        password: ${{ secrets.PAT }}
     # Dan build dan push
     - name: Build and push
       # dengan docker
       run: |
-        echo ${{ secrets.GITHUB_TOKEN }} | docker login ghcr.io -u thearkaid --password-stdin
         docker build -t ghcr.io/thearkaid/karsajobs:latest .
         docker push ghcr.io/thearkaid/karsajobs:latest
