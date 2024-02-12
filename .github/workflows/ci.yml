@@ -72,7 +72,7 @@ jobs:
           # registry nya
           registry: ghcr.io
           # username nya
-          username: ${{ github.actor }}
+          username: thearkaid
           # password nya
           password: ${{ secrets.GITHUB_TOKEN }}
       # Build dan push Docker image
