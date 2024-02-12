@@ -77,7 +77,7 @@ jobs:
           # username nya
           username: ${{ github.actor }}
           # password nya
-          password: ${{ secrets.GITHUB_TOKEN }}
+          password: ${{ secrets.PAT }}
       # Build dan push Docker image
       - name: Build and push Docker image
         # dengan docker
