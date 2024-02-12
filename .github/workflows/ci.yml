@@ -75,12 +75,12 @@ jobs:
           # registry nya
           registry: ghcr.io
           # username nya
-          username: thearkaid
+          username: ${{ github.actor }}
           # password nya
           password: ${{ secrets.GITHUB_TOKEN }}
       # Build dan push Docker image
       - name: Build and push Docker image
         # dengan docker
         run: |
-          docker build -t ghcr.io/thearkaid/karsajobs-ui:latest . # Sesuaikan dengan username GitHub Anda
-          docker push ghcr.io/thearkaid/karsajobs-ui:latest # Sesuaikan dengan username GitHub Anda
+          docker build -t ghcr.io/thearkaid/karsajobs-ui:latest .
+          docker push ghcr.io/thearkaid/karsajobs-ui:latest
