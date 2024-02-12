@@ -52,11 +52,12 @@ jobs:
       uses: docker/login-action@v1
       # dengan username dan password
       with:
-        username: ${{ secrets.GITHUB_USERNAME }}
-        password: ${{ secrets.GITHUB_PASSWORD }}
+        registry: ghcr.io
+        username: thearkaid
+        password: ${{ secrets.GITHUB_TOKEN }}
     # Dan build dan push
     - name: Build and push
       # dengan docker
       run: |
-        docker build -t ghcr.io/thearkaid/${{ secrets.GITHUB_USERNAME }}/karsajobs:latest .
-        docker push ghcr.io/thearkaid/${{ secrets.GITHUB_USERNAME }}/karsajobs:latest
+        docker build -t ghcr.io/thearkaid/karsajobs:latest .
+        docker push ghcr.io/thearkaid/karsajobs:latest
