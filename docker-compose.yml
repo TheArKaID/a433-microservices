@@ -1,0 +1,31 @@
+# Versi dari format docker-compose
+version: '2'
+
+services:
+  # Nama service untuk database - item-db
+  item-db:
+    # Image yang digunakan untuk service ini
+    image: mongo:3
+    # Volume yang digunakan untuk menyimpan data
+    volumes:
+      # nama-volume:lokasi-di-dalam-container
+      - app-db:/data/db
+    # selalu restart otomatis
+    restart: always
+
+  # Nama service untuk aplikasi - item-app
+  item-app:
+    # Image dari Dockerfile yang di publish
+    image: ghcr.io/thearkaid/item-app:v1
+    # Port yang digunakan
+    ports:
+      - "80:8080"
+    # service ini berjalan setelah service item-db
+    depends_on:
+      - item-db
+    # selalu restart otomatis
+    restart: always
+
+# Volumes yang dibuat/digunakan
+volumes:
+  app-db:
